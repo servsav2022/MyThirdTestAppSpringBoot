@@ -12,6 +12,4 @@ public class Response {
     private String code;
     private String errorCode;
     private String errorMessage;
-
-
 }

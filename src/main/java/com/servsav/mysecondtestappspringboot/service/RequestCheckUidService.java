@@ -3,9 +3,7 @@ package com.servsav.mysecondtestappspringboot.service;
 import com.servsav.mysecondtestappspringboot.exception.UnsupportedCodeException;
 import com.servsav.mysecondtestappspringboot.model.Request;
 import org.springframework.stereotype.Service;
-
 import java.util.Objects;
-
 @Service
 public class RequestCheckUidService implements CheckUidService {
 

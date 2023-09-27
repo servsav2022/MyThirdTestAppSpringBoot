@@ -23,22 +23,16 @@ public class Request {
     @Size(max = 32)
     @NotBlank (message = "Не заполнено поле operationUid")
     private String operationUid;
-
-
     private String systemName;
 
     @NotBlank (message = "Не заполнено поле systemTime")
     private String systemTime;
-
-
     private String source;
 
     @Min(1)
     @Max(100000)
     private int communicationId;
-
     private int templateId;
     private int productCode;
     private int smsCode;
-
 }
