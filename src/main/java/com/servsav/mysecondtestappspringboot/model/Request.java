@@ -23,7 +23,7 @@ public class Request {
     @Size(max = 32)
     @NotBlank (message = "Не заполнено поле operationUid")
     private String operationUid;
-    private String systemName;
+    private Systems systemName;
 
     @NotBlank (message = "Не заполнено поле systemTime")
     private String systemTime;
@@ -35,4 +35,19 @@ public class Request {
     private int templateId;
     private int productCode;
     private int smsCode;
+
+    @Override
+    public  String toString() {
+        return "{" +
+                "uid='" + uid + '\'' +
+                ", operationUid='" + operationUid + '\'' +
+                ", systemName='" + systemName + '\'' +
+                ", systemTime='" + systemTime + '\'' +
+                ", source='" + source + '\'' +
+                ", communicationId=" + communicationId +
+                ", templateId=" + templateId +
+                ", productCode=" + productCode +
+                ", smsCode=" + smsCode +
+                "}";
+    }
 }
