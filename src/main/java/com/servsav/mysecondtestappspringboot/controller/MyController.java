@@ -1,6 +1,4 @@
 package com.servsav.mysecondtestappspringboot.controller;
-
-import com.servsav.mysecondtestappspringboot.MySecondTestAppSpringBootApplication;
 import com.servsav.mysecondtestappspringboot.exception.UnsupportedCodeException;
 import com.servsav.mysecondtestappspringboot.exception.ValidationFailedException;
 import com.servsav.mysecondtestappspringboot.model.*;
@@ -19,17 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-
 @Slf4j
 @RestController
 public class MyController {
-    private  final ValidationService validationService;
-    private  final CheckUidService checkUidService;
+    private final ValidationService validationService;
+    private final CheckUidService checkUidService;
     private final ModifyResponseService modifyResponseService;
-
     @Autowired
     public MyController(ValidationService validationService,
                         CheckUidService checkUidService,
@@ -41,8 +35,7 @@ public class MyController {
     @PostMapping(value = "/feedback")
     public ResponseEntity<Response> feedback(@Valid @RequestBody Request request,
                                              BindingResult bindingResult){
-        log.error("1 bindingResult: {}",bindingResult);
-        log.info("1 request: {}",request);
+        log.info("Входящий request: {}",request);
         Response response = Response.builder()
                 .uid(request.getUid())
                 .operationUid(request.getOperationUid())
@@ -51,41 +44,36 @@ public class MyController {
                 .errorCode(ErrorCodes.EMPTY)
                 .errorMessage(ErrorMessages.EMPTY)
                 .build();
-
-        log.info("1 response: {}",response);
-
+        log.info("Первоначальный response: {}",response);
         try {
             validationService.isValid(bindingResult);
-            log.info("2 bindingResult: {}",bindingResult);
             checkUidService.isChecked(request);
-            log.info("2 request: {}",request);
+            log.info(" После валидации request: {}",request);
 
         } catch (ValidationFailedException e) {
             response.setCode(Codes.FAILED);
             response.setErrorCode(ErrorCodes.VALIDATION_EXCEPTION);
             response.setErrorMessage(ErrorMessages.VALIDATION);
-
-            log.error("Ошибка: ",e);
+            log.info("Отдаваемый response: {}",response);
+            log.error("Ошибка Валидации: ",e);
             return  new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         } catch ( UnsupportedCodeException e) {
             response.setCode(Codes.FAILED);
             response.setErrorCode(ErrorCodes.UNSUPPORTED_EXCEPTION);
             response.setErrorMessage(ErrorMessages.UNSUPPORTED);
-
-            log.error("Ошибка: ",e);
+            log.info("Отдаваемый response: {}",response);
+            log.error("Ошибка Не поддерживая: ",e);
             return new ResponseEntity<>(response, HttpStatus.SEE_OTHER);
         }catch ( Exception e) {
             response.setCode(Codes.FAILED);
             response.setErrorCode(ErrorCodes.UNKNOWN_EXCEPTION);
             response.setErrorMessage(ErrorMessages.UNKNOWN);
-
-            log.error("Ошибка: ",e);
+            log.info("Отдаваемый response: {}",response);
+            log.error("Ошибка Неизвестная: ",e);
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
         modifyResponseService.modify(response);
-        log.info("2 response: {}",response);
+        log.info("Отдаваемый response: {}",response);
         return  new ResponseEntity<>(modifyResponseService.modify(response), HttpStatus.OK);
-
     }
 }

@@ -1,5 +1,4 @@
 package com.servsav.mysecondtestappspringboot.model;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +8,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -35,7 +33,6 @@ public class Request {
     private int templateId;
     private int productCode;
     private int smsCode;
-
     @Override
     public  String toString() {
         return "{" +
