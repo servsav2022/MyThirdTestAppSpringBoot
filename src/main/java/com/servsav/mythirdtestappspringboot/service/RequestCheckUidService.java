@@ -1,7 +1,7 @@
-package com.servsav.mysecondtestappspringboot.service;
+package com.servsav.mythirdtestappspringboot.service;
 
-import com.servsav.mysecondtestappspringboot.exception.UnsupportedCodeException;
-import com.servsav.mysecondtestappspringboot.model.Request;
+import com.servsav.mythirdtestappspringboot.exception.UnsupportedCodeException;
+import com.servsav.mythirdtestappspringboot.model.Request;
 import org.springframework.stereotype.Service;
 import java.util.Objects;
 @Service

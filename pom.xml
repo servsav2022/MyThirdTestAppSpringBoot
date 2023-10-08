@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>MySecondTestAppSpringBoot</artifactId>
+    <artifactId>MyThirdTestAppSpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>MySecondTestAppSpringBoot</name>
-    <description>MySecondTestAppSpringBoot</description>
+    <name>MyThirdTestAppSpringBoot</name>
+    <description>MyThirdTestAppSpringBoot</description>
     <properties>
         <java.version>17</java.version>
     </properties>

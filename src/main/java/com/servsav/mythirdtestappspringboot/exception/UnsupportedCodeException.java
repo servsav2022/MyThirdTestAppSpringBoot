@@ -1,4 +1,4 @@
-package com.servsav.mysecondtestappspringboot.exception;
+package com.servsav.mythirdtestappspringboot.exception;
 
 public class UnsupportedCodeException extends  Exception {
 

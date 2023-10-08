@@ -1,6 +1,6 @@
-package com.servsav.mysecondtestappspringboot.service;
+package com.servsav.mythirdtestappspringboot.service;
 
-import com.servsav.mysecondtestappspringboot.exception.ValidationFailedException;
+import com.servsav.mythirdtestappspringboot.exception.ValidationFailedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;

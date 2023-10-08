@@ -1,6 +1,6 @@
-package com.servsav.mysecondtestappspringboot.service;
+package com.servsav.mythirdtestappspringboot.service;
 
-import com.servsav.mysecondtestappspringboot.model.Response;
+import com.servsav.mythirdtestappspringboot.model.Response;
 import org.springframework.stereotype.Service;
 
 @Service
