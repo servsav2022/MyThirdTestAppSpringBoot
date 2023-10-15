@@ -39,6 +39,7 @@ public class MyController {
                                              BindingResult bindingResult) throws ParseException {
         log.info("Входящий request: {}",request);
         Response response = ResponseFactory.createResponse(request);
+        log.info("Первоначальный response: {}",response);
         try {
             validationService.isValid(bindingResult);
             checkUidService.isChecked(request);
