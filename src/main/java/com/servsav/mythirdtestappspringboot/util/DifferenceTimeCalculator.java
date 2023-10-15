@@ -23,7 +23,6 @@ public class DifferenceTimeCalculator {
             SimpleDateFormat resultFormat = new SimpleDateFormat("ss.SSS");
             String timeDifferenceFormatted = resultFormat.format(new Date(timeDifferenceInMillis));
 
-
         return timeDifferenceFormatted;
     }
 }
