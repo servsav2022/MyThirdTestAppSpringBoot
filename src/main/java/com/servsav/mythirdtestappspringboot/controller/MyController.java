@@ -24,8 +24,8 @@ public class MyController {
     private final ModifyResponseService modifyResponseService;
     @Autowired
     /**
-     * Используется @Qualifier("ModifyOperationUidResponseService") для того что видеть разницу вовремени или он
-     * перезатрется в методе modify другого @Qualifier
+     * Используется @Qualifier("ModifyOperationUidResponseService") для того что видеть разницу во времени или он
+     * пере затрется в методе modify другого @Qualifier
      */
     public MyController(ValidationService validationService,
                         CheckUidService checkUidService,
